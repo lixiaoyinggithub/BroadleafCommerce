@@ -22,8 +22,8 @@ package org.broadleafcommerce.cms.admin.web.controller;
 
 import org.broadleafcommerce.common.config.PostAutoConfigurationImport;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
-import org.springframework.boot.autoconfigure.web.MultipartProperties;
+import org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.servlet.MultipartProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

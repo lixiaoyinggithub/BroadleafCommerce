@@ -22,7 +22,7 @@ import org.broadleafcommerce.core.web.seo.BasicSeoPropertyGeneratorImpl;
 import org.broadleafcommerce.core.web.seo.SeoPropertyGenerator;
 import org.broadleafcommerce.presentation.condition.ConditionalOnTemplating;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.web.filter.OrderedRequestContextFilter;
+import org.springframework.boot.web.servlet.filter.OrderedRequestContextFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mobile.device.DeviceResolver;
