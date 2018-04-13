@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  BroadleafCommerce Common Libraries
+  %%
+  Copyright (C) 2009 - 2018 Broadleaf Commerce
+  %%
+  Licensed under the Broadleaf Fair Use License Agreement, Version 1.0
+  (the "Fair Use License" located  at http://license.broadleafcommerce.org/fair_use_license-1.0.txt)
+  unless the restrictions on use therein are violated and require payment to Broadleaf in which case
+  the Broadleaf End User License Agreement (EULA), Version 1.1
+  (the "Commercial License" located at http://license.broadleafcommerce.org/commercial_license-1.1.txt)
+  shall apply.
+  
+  Alternatively, the Commercial License may be replaced with a mutually agreed upon license (the "Custom License")
+  between you and Broadleaf Commerce. You may not use this file except in compliance with the applicable license.
+  #L%
+  -->
+
+<web-app
+        version="3.0"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        metadata-complete="true"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <!-- Disable any ServletContextInitializer scanning -->
+    <absolute-ordering />
+
+    <context-param>
+        <param-name>listenerContextInitializerClass</param-name>
+        <param-value>com.broadleafcommerce.admin.AdminApplication</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.broadleafcommerce.common.web.boot.support.SpringBootBootstrappingServletContextListener</listener-class>
+    </listener>
+    <error-page>
+        <error-code>400</error-code>
+        <location>/src/main/resources/WEB-INF/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/src/main/resources/WEB-INF/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/src/main/resources/WEB-INF/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/src/main/resources/WEB-INF/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/src/main/resources/WEB-INF/error.html</location>
+    </error-page>
+    <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/src/main/resources/WEB-INF/error.html</location>
+</error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/src/main/resources/WEB-INF/error.html</location>
+    </error-page>
+
+
+
+
+</web-app>

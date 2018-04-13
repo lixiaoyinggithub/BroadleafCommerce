@@ -29,15 +29,14 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.web.filter.GenericFilterBean;
 
-import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * Checks the validity of the CSRF token on every POST request. Also Checks the validity of the state token on every POST
@@ -50,10 +49,10 @@ import javax.servlet.http.HttpServletResponse;
  * ({@code servletPath + pathInfo}) of an {@code HttpServletRequest}.
  * This allows you to use wildcard matching as well, for example {@code /**} or {@code **}
  *
- * @see AntPathRequestMatcher
- *
  * @author Jeff Fischer
+ * @see AntPathRequestMatcher
  */
+
 public class SecurityFilter extends GenericFilterBean {
 
     protected static final Log LOG = LogFactory.getLog(SecurityFilter.class);
@@ -89,6 +88,7 @@ public class SecurityFilter extends GenericFilterBean {
             String requestToken = request.getParameter(exploitProtectionService.getCsrfTokenParameter());
             try {
                 exploitProtectionService.compareToken(requestToken);
+//                exploitProtectionService.compareToken("");
             } catch (ServiceException e) {
                 throw new ServletException(e);
             }
@@ -101,6 +101,7 @@ public class SecurityFilter extends GenericFilterBean {
                 String requestToken = request.getParameter(staleStateProtectionService.getStateVersionTokenParameter());
                 try {
                     staleStateProtectionService.compareToken(requestToken);
+//                    staleStateProtectionService.compareToken("");
                 } catch (StaleStateServiceException e) {
                     throw new ServletException(e);
                 }
@@ -124,7 +125,6 @@ public class SecurityFilter extends GenericFilterBean {
      *         </list>
      *     </property>
      * </bean>
-     *
      **/
     public void setExcludedRequestPatterns(List<String> excludedRequestPatterns) {
         this.excludedRequestPatterns = excludedRequestPatterns;
